@@ -1,8 +1,3 @@
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=tsarbom4&show_icons=true&locale=en&layout=compact" alt="tsarbom4" /></p>
-
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=tsarbom4&show_icons=true&locale=en" alt="tsarbom4" /></p>
-
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=tsarbom4&" alt="tsarbom4" /></p>
 
 <!DOCTYPE html>
 <html lang="en">
