@@ -1,9 +1,11 @@
+<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=tsarbom4&show_icons=true&locale=en&layout=compact" alt="tsarbom4" /></p>
+
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=tsarbom4&show_icons=true&locale=en" alt="tsarbom4" /></p>
+
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=tsarbom4&" alt="tsarbom4" /></p>
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Скрипт на PowerShell для быстрого добавления пользователей в Active Directory</title>
-</head>
 <body>
 	<h1>Скрипт на PowerShell для быстрого добавления пользователей в Active Directory</h1>
 	<p>Представляю вам скрипт на PowerShell, который позволяет быстро и удобно добавлять новых пользователей в Active Directory, а также генерировать для каждого пользователя свой пароль и ярлык для подключения. Этот скрипт имеет множество преимуществ, среди которых:</p>
