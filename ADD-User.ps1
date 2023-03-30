@@ -1,4 +1,4 @@
-﻿Write-Host "Проверка наличия прав Администратора..." -ForegroundColor Yellow;
+Write-Host "Проверка наличия прав Администратора..." -ForegroundColor Yellow;
 if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
 [Security.Principal.WindowsBuiltInRole] "Administrator")) {
 Write-Host "Права Администратора не были обнаружены, перезапустите скрипт с правами Администратора" -ForegroundColor Yellow -NoNewline;
@@ -24,9 +24,23 @@ Write-Host "Поиск адресса подключения к серверу, 
 Write-Host "The address of the Terminal Server is: $fullAddress"
 Write-Host ""
 #---------------#
-Write-Host "Поиск внешнего адресса подключения к шлюзу"
-[string]$gateway = Invoke-RestMethod "https://api.ipify.org?format=text&ip=$gateway"
-Write-Host "Внешний IP-адрес шлюза $gateway"
+Write-Host "Searching for the external IP address of the gateway..."
+[string]$gatewayIP = Invoke-RestMethod "https://api.ipify.org?format=text"
+Write-Host "External IP address of the gateway: $gatewayIP"
+$gatewayName = (Resolve-DnsName -Name $gatewayIP -ErrorAction SilentlyContinue).NameHost
+if ($gatewayName) {
+    Write-Host "DNS name of the gateway: $gatewayName"
+} else {
+    Write-Host "Failed to resolve DNS name for the gateway."
+    $userChoice = Read-Host "Do you want to enter a DNS name for the gateway manually? (y/n)"
+    if ($userChoice.ToLower() -eq "y") {
+        $userInput = Read-Host "Enter the DNS name for the gateway:"
+        $gatewayName = $userInput
+    } else {
+        $gatewayName = $gatewayIP
+    }
+}
+Write-Host "Gateway address: $gatewayName"
 Write-Host ""
 #---------------#
 $workspaceID = $fullAddress
@@ -199,14 +213,3 @@ do {
 			username:s:$($Login)@$($domain)" | Out-File -FilePath "$RdpFile" -Encoding utf8	
     }
 } until ($Counter -eq $count)
-
-		
-			
-
-
-
-
-
-
-
-
